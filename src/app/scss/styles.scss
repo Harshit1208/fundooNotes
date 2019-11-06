@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700,900&display=swap");
+* {
+  font-family: "Lato", sans-serif;
+}
+.mat-icon{
+  cursor: pointer;
+  font-family: 'Material Icons' !important;
+}
+
+@mixin color-picker($color) {
+  color: $color;
+  display: inline;
+}
+
+
+.blue-color {
+  @include color-picker(rgb(69, 150, 243));
+}
+.red-color {
+  @include color-picker(rgb(236, 59, 59));
+}
+.orange-color {
+  @include color-picker(rgb(255, 167, 5));
+}
+.green-color {
+  @include color-picker(rgba(48, 224, 139, 0.747));
+}
+.black-color {
+  @include color-picker(rgba(0, 0, 0, 0));
+}
+
+
+.next-button{
+  background-color: rgb(236, 59, 59);
+  color: white;
+}
+
+

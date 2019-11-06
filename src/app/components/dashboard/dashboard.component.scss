@@ -1,0 +1,156 @@
+.sidenav-bigger-screen {
+  width: 23%;
+}
+
+.sidenav-smaller-screen {
+  width: 80%;
+  height: 90%;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+
+.mat-divider{
+  border-top-color: white
+}
+
+
+.search-box-in-header {
+  margin-left: 6%;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  height: 35px;
+  width: 50%;
+  background-color: #e6e6e6;
+}
+
+.sidenav-content {
+  color: white
+}
+.three-icons-in-header-bigger-screen {
+  margin-left: 30%;
+}
+
+.three-icons-in-header-smaller-screen {
+  margin-left: 5%;
+}
+
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.log-out-icon {
+  margin-left: 5%;
+}
+
+.sidenav-content {
+  &:hover {
+    background-color: rgb(236, 59, 59);
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px; 
+  }
+}
+
+.search-bar-minimized {
+  height: 5px;
+  border-radius: 10px;
+  border: 1.5px solid #000000;
+  background-color: #e6e6e69d;
+}
+
+.pic {
+  border: 1.5px solid #000000;
+}
+
+.complete-search-bar-minimized {
+  margin-top: 2.5%;
+  width: 280px;
+}
+
+.jet {
+  background-color: #e6e6e69d;
+}
+
+.complete-search-bar-maximized {
+  margin-top: 2.5%;
+  width: 50%;
+}
+
+.occupy-full {
+  width: 100%;
+}
+
+.true {
+  width: 20%
+}
+
+.demo{
+  position: absolute;
+  margin-top: 10px;
+}
+
+.mat-toolbar {
+  // background-image: url(http://www.allwhitebackground.com/images/5/Abstract-Colorful-Background-Image.jpg);
+ background: rgb(0, 0, 0);
+  color: rgba(0,0,0,.87);
+}
+
+.new {
+  padding-top: 4%
+}
+
+.mat-drawer-container {
+  
+  background-color: #e6e6e6;
+  color: rgba(0,0,0,.87);
+  
+}
+
+.mat-drawer {
+  // background-image:url(http://images.unsplash.com/photo-1520187135890-e8023d253f5c?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9);
+  background-image:url(https://i.pinimg.com/originals/5b/0e/1d/5b0e1dec5c97f55b505a5dea46d07cf8.jpg);
+  //color: rgba(0,0,0,.87);
+
+
+}
+
+.yes {
+  color: white
+}
+
+search-box-in-header[_ngcontent-c1] {
+  margin-left: 6%;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  height: 35px;
+  width: 50%;
+  background-color: #504c4c;
+}
+
+.color-palette {
+  input {
+    display: none;
+  }
+  
+
+  &:hover {
+    input {
+      color: white;
+      display: inline-block;
+      border: none;
+      border-radius: 100%;
+      width: 25px;
+      height: 25px;
+      background-color: white;
+      box-shadow: none;
+      padding: 0;
+    }
+    mat-icon {
+      display: none;
+    }
+  }
+}

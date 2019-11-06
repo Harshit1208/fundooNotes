@@ -1,0 +1,43 @@
+@import "src/app/scss/styles.scss";
+
+.email-bar{
+  width: 100%;
+}
+
+.forgot-email-button{
+  @include color-picker(rgb(255, 167, 5));
+  margin-left:0.25em;
+  cursor: pointer;
+  // pointer-events: all;
+}
+
+.complete-box{
+  margin-top: 3.5%;
+}
+
+.not-your-computer{
+  margin-top: 15%;
+}
+
+.learn-more{
+  @include color-picker(rgb(255, 167, 5));
+  cursor: pointer;
+}
+
+.create-account-next-div{
+  margin-top:15%;
+}
+.mat-card {
+  background: #000000;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.new{
+//  background:  rgb(1, 59, 90);
+background-image: url('./../../../../../pop.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+}
+.yes {
+  color: white
+}

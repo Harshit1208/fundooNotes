@@ -1,0 +1,54 @@
+@import "src/app/scss/styles.scss";
+
+.first-name-bigger-screen {
+  width: 45%;
+}
+
+.last-name-bigger-screen {
+  width: 50%;
+  // margin-left: 5%;
+}
+
+.first-last-name-smaller-screen {
+  width: 100%;
+}
+
+.use-my-email {
+  @include color-picker(rgb(255, 167, 5));
+  cursor: pointer;
+}
+
+.password-smaller-screen {
+  width: 100%;
+}
+
+.password-bigger-screen {
+  width: 90%;
+}
+
+.confirm-smaller-screen {
+  width: 100%;
+  margin-top: 5%;
+}
+
+.confirm-bigger-screen {
+  width: 80%;
+}
+
+.mat-card {
+  background: #000000;
+  color: rgba(250, 250, 250, 0.87);
+}
+
+.new {
+  padding-top : 25%;
+}
+.new3{
+  // background:  rgb(1, 59, 90);
+  background-image: url('./../../../../../pop.jpg');
+  background-repeat: no-repeat;
+background-size: cover;
+ }
+ .yes {
+  color: white
+}

@@ -1,0 +1,68 @@
+<div>
+  <mat-toolbar style="min-width: 700px"> 
+           <div class="new"><div class="blue-color"><strong>F</strong></div>
+            <div class="red-color"><strong>U</strong></div>
+            <div class="orange-color"><strong>N</strong></div>
+            <div class="blue-color"><strong>D</strong></div>
+            <div class="green-color"><strong>O</strong></div>
+            <div class="red-color"><strong>O</strong></div>
+            <div class="black-color">-</div>
+            <div class="blue-color"><strong>N</strong></div>
+            <div class="red-color"><strong>O</strong></div>
+            <div class="orange-color"><strong>T</strong></div>
+            <div class="blue-color"><strong>E</strong></div>
+            <div class="green-color"><strong>S</strong></div>
+  </div>
+      
+    </mat-toolbar>  </div>
+  
+<h2 align="center"> Fundoo Notes-Choose your service to Register.</h2>
+<mat-card class="background" (click)="basic()">
+  <mat-card-content >
+    <mat-card-footer align="center" >
+        ADD TO CART
+      </mat-card-footer></mat-card-content>
+</mat-card>
+<mat-card class="background1" (click)="advance()">
+  <mat-card-content >
+        <mat-card-footer align="center">
+            ADD TO CART
+          </mat-card-footer></mat-card-content>
+</mat-card>
+<div  fxLayout="row" fxLayoutGap="2px" fxLayoutAlign="space-evenly">
+  
+<mat-card class="card" ngClass.lt-md="note-smaller-screen" ngClass.gt-md="note-bigger-screen" class="extra-actions">
+  <mat-card-title>
+   price: $99 per month
+  </mat-card-title>
+  <mat-card-subtitle>
+   advanced
+   </mat-card-subtitle>
+   <mat-card-content >
+      <div >
+      <ul>
+          <li>$99 per month</li>
+          <li>Ability to add title,description, images,labels,checklist and colors.</li>
+          </ul>
+          </div>
+   </mat-card-content>
+  
+</mat-card>
+<mat-card ngClass.lt-md="note-smaller-screen" ngClass.gt-md="note-bigger-screen" class="extra-actions">
+  <mat-card-title>
+   price: $49 per month
+  </mat-card-title>
+  <mat-card-subtitle>
+   basic
+   </mat-card-subtitle>
+   <mat-card-content>
+      <ul>
+          <li>$49 per month</li>
+          <li>Ability to add only title and description.</li>
+          </ul>
+   </mat-card-content>
+  
+</mat-card>
+</div>
+
+<p align="center" > <button (click)=signIn() mat-raised-button class="signin">Sign in instead</button></p>
