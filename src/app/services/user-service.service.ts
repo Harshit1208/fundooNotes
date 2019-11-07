@@ -136,4 +136,17 @@ removeSideLabel(id){
     this.events.emit('sideLabelDeleted');
   })
 }
-}
+
+removeReminder(data){
+  let obs = this.http.postWithToken('/notes/removeReminderNotes',data,this.token)
+  obs.subscribe((response:any)=>{
+    console.log("reminder remove ho gaya")
+      this.events.emit('reminderDeleted');
+  })
+  
+  }
+  getReminderNotes(){
+    return this.http.get('/notes/getReminderNotesList ',this.token)
+    
+  }
+}``

@@ -8,7 +8,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {
   MatButtonModule, MatInputModule, MatListModule,
   MatCardModule, MatFormFieldModule, MatMenuModule, MatSelectModule, 
-  MatOptionModule, MatIconModule, MatSnackBarModule, MatSidenavModule, MatToolbarModule, MatTooltipModule, MatCheckboxModule, MatExpansionModule, MatDialogModule, MatChipsModule
+  MatOptionModule, MatIconModule, MatSnackBarModule, MatSidenavModule, MatToolbarModule, MatTooltipModule, MatCheckboxModule, MatExpansionModule, MatDialogModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RegisterComponent } from './components/register/register.component';
@@ -29,6 +29,10 @@ import { ServicePurchaseComponent } from './components/service-purchase/service-
 import { CartComponent } from './components/cart/cart.component';
 import { LabelsComponent } from './components/labels/labels.component';
 import { ShowLabelsComponent } from './components/show-labels/show-labels.component';
+import { ReminderComponent } from './components/reminder/reminder.component';
+import { MyDatePipePipe } from './pipe/my-date-pipe.pipe';
+import { ShowReminderComponent } from './components/show-reminder/show-reminder.component';
+import { QuestionComponent } from './components/question/question.component';
 
 @NgModule({
   declarations: [
@@ -47,12 +51,16 @@ import { ShowLabelsComponent } from './components/show-labels/show-labels.compon
     ServicePurchaseComponent,
     CartComponent,
     LabelsComponent,
-    ShowLabelsComponent
+    ShowLabelsComponent,
+    ReminderComponent,
+    MyDatePipePipe,
+    ShowReminderComponent,
+    QuestionComponent
   ],
   entryComponents:[
-    DialogComponent,CollaboratorComponent,ServicePurchaseComponent,
+    DialogComponent,CollaboratorComponent,
     CartComponent, LabelsComponent,
-    ShowLabelsComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -79,7 +87,9 @@ import { ShowLabelsComponent } from './components/show-labels/show-labels.compon
     HttpClientModule,
     LayoutModule,
     MatDialogModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     HttpServiceService,

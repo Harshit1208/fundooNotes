@@ -27,6 +27,7 @@ export class LabelsComponent implements OnInit {
       userId:localStorage.getItem('userId')
     }
     this.usvc.addLabel(data)
+    this.dialogRef.close()
   }
   removeSideLabel(id){
     this.usvc.removeSideLabel(id)

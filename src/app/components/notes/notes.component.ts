@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
 import { DialogComponent} from 'src/app/components/dialog/dialog.component'
 import { CollaboratorComponent } from '../collaborator/collaborator.component';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { Router } from '@angular/router';
 
 export interface DialogData{
   noteId:string,
@@ -24,7 +25,7 @@ export interface DialogData{
 })
 export class NotesComponent implements OnInit  {
 
-  //events = new EventEmitter();
+  events = new EventEmitter();
   service:any
   collaboratorList: Array<any>=[]; 
   noteColor = new FormControl('#FFFFFF');
@@ -33,12 +34,23 @@ export class NotesComponent implements OnInit  {
   notesView: Boolean = true;
   labelArray: any[];
 
-  constructor(private noteSvc: NoteService , private dialog : MatDialog , private usvc : UserServiceService) {
+  constructor(private noteSvc: NoteService , private dialog : MatDialog , private usvc : UserServiceService , private router: Router) {
 
     this.noteSvc.events.addListener('note-saved-in-database', () => {
       //Fetch all notes from database
       this.fetchAllNotes();
     })
+
+    this.usvc.events.addListener('reminderDeleted', () => {
+      //Fetch all notes from database
+      this.fetchAllNotes();
+    })
+
+    this.noteSvc.events.addListener('reminder-added', () => {
+      //Fetch all notes from database
+      this.fetchAllNotes();
+    })
+
     this.getService();
     
     this.usvc.events.addListener('basic-service', () => {
@@ -102,6 +114,8 @@ export class NotesComponent implements OnInit  {
         //Fetch all notes from database
         this.fetchAllNotes();
     })
+
+    this.getLabels();
   }
 
   //Fetch all notes
@@ -209,25 +223,52 @@ addCollab(note){
     })
   }
 
-  getLabels(){
+  getLabels() {
     let obs = this.usvc.getLabels()
-    obs.subscribe((response:any)=>{
-     console.log(response)
-    if(this.labelArray==null){
-      this.labelArray=[]
-    }
-      this.labelArray=response.data.details;
+    obs.subscribe((response: any) => {
+      console.log(response)
+      if (this.labelArray == null) {
+        this.labelArray = []
+      }
+      this.labelArray = response.data.details;
       //console.log(this.labelArray)
     })
   }
-  
-  addToLabel(note,id){
-  this.usvc.addToLabel(note,id )
+
+  addToLabel(note, id) {
+    this.usvc.addToLabel(note, id)
 
   }
-  removeLabel(note,id){
-    this.usvc.removeLabel(note,id)
+  removeLabel(note, id) {
+    this.usvc.removeLabel(note, id)
 
   }
+  removeReminder(note) {
+    var data = {
+      noteIdList: [note.id]
+    }
+    this.usvc.removeReminder(data)
+
+  }
+  compareDate(date) {
+    let today = new Date();
+    let givenDate = new Date(date);
+    //console.log(givenDate)
+
+    let dateWithNoTimeZone = new Date(
+      givenDate.getUTCFullYear(),
+      givenDate.getUTCMonth(),
+      givenDate.getUTCDate(),
+      givenDate.getUTCHours(),
+      givenDate.getUTCMinutes(),
+      givenDate.getUTCSeconds(),
+    )
+    //console.log(dateWithNoTimeZone)
+    return (today >= dateWithNoTimeZone)
+  }
+  question(){
+    this.router.navigateByUrl('question')
+  }
+
 
 }

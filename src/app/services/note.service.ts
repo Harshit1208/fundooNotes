@@ -26,8 +26,7 @@ export class NoteService {
 
   events = new EventEmitter();
 
-  constructor(private http: HttpServiceService
-  ) { }
+  constructor(private http: HttpServiceService) { }
 
   fetchAllNotes(): any {
     return this.http.get('notes/getNotesList', this.token);
@@ -199,4 +198,13 @@ export class NoteService {
   fetchAllLabels() {
     return this.http.get("noteLabels/getNoteLabelList", this.token);
   }
+
+
+  addReminder(data) {
+    let obs = this.http.postWithToken("notes/addUpdateReminderNotes", data, this.token);
+    obs.subscribe(response => {
+      console.log("reminder added");
+      this.events.emit('reminder-added')
+  })
+}
 }

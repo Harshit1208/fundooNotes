@@ -52,16 +52,16 @@
         <mat-icon class="material-icons" style="color: rgb(2, 2, 2)">search</mat-icon>
       </div>
       <div ngClass.xs=three-icons-in-header-smaller-screen>
-        <mat-icon matTooltip="refresh" class="material-icons" style="color: rgb(255, 255, 255)">cached</mat-icon>
+        <mat-icon matTooltip="refresh" class="material-icons" style="color: rgb(255, 255, 255)" (click)=refresh()>cached</mat-icon>
       </div>
       <div ngClass.gt-xs=three-icons-in-header-bigger-screen >
         <div fxLayoutAlign="center center" *ngIf="toggleView" (click)="toggleViewNote()" fxHide.lt-sm="true" matTooltip="List view"><mat-icon style="color: rgb(255, 254, 254)">list</mat-icon></div>
         <div fxLayoutAlign="center center" *ngIf="!toggleView" (click)="toggleViewNote()" fxHide.lt-sm="true" matTooltip="Grid view"><mat-icon style="color: rgb(255, 254, 254)">view_comfy</mat-icon></div>
       </div>
       <div ngClass.gt-xs=three-icons-in-header-bigger-screen ngClass.xs=three-icons-in-header-smaller-screen>
-        <mat-icon matTooltip="Settings" class="material-icons" style="color: rgb(255, 254, 254)">settings_application</mat-icon>
+        <mat-icon matTooltip="Shopping cart" class="material-icons" style="color: rgb(255, 254, 254)">shopping_cart</mat-icon>
       </div>
-
+      <!-- <div fxLayoutAlign="center center" (click)="goToCartComponent()"><mat-icon matTooltip="Shopping cart">shopping_cart</mat-icon></div> -->
     </div>
 
     <!-- This fills the remaining space of the current row -->
@@ -70,18 +70,20 @@
     <!-- Log Out Icon -->
       <div fxLayout="row" fxLayoutAlign="space-around" ngClass="log-out-icon">
           <button mat-mini-fab color="warn" matTooltip="Log Out" mat-icon-button [matMenuTriggerFor]="profile">
-            <mat-icon>account_circle</mat-icon>
+            <mat-icon>account_box</mat-icon>
           </button>
-      <mat-menu #profile="matMenu">
-          <mat-card>
-            <div style="height:30%; width:30%">
-              <div><h1>{{userName}}</h1></div>
-              <div>{{userEmail}}</div>
-            </div>
+      <mat-menu  #profile="matMenu">
+          <mat-card >
+            <mat-card-header>
+              <img mat-card-avatar src = "https://cdn0.iconfinder.com/data/icons/user-interface-vol-3-12/66/68-512.png">
+              <mat-card-title><strong class="uppercase">{{userName}}</strong></mat-card-title>
+              <mat-card-subtitle>{{userEmail}}</mat-card-subtitle>
+            </mat-card-header>
+            
           </mat-card>
           <div mat-menu-item>
-            <button mat-button>Add account</button>
-            <button mat-button (click)="logout()">Logout</button>
+            <!-- <button mat-button>Add account</button> -->
+            <button mat-raised-button class="next1-button" (click)="logout()">Logout</button>
           </div>
         </mat-menu>
     </div>
@@ -108,7 +110,7 @@
           </h3>
         </mat-list-item>
 
-        <mat-list-item class="sidenav-content">
+        <mat-list-item class="sidenav-content" (click)="reminderNotes()" >
           <i class="material-icons">notifications_none</i>
           <h3 style="margin-left:18%">
             Reminders

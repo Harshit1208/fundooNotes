@@ -23,6 +23,7 @@ export interface DialogData{
 })
 export class DashboardComponent implements OnInit {
   labelArray: any
+  reminderArray: any
   events = new EventEmitter();
   toggleView: Boolean = false;
   userName: string=localStorage.getItem('fName');
@@ -60,6 +61,10 @@ export class DashboardComponent implements OnInit {
 
     this.usvc.events.addListener('advance-service', () => {
       this.getService()
+
+    })
+    this.usvc.events.addListener('sideLabelDeleted', () => {
+      this.getLabels()
 
     })
     this.usvc.events.addListener('label-added', () => {
@@ -180,5 +185,16 @@ export class DashboardComponent implements OnInit {
     obs.subscribe((response: any) => {
       this.labelArray = response.data.details;
     })
+  }
+
+  reminderNotes() {
+    this.hideNoteBar = true;
+    this.router.navigate(['showReminder'], {
+      relativeTo: this.route
+    });
+  }
+
+  refresh() {
+    window.location.reload();
   }
 }
