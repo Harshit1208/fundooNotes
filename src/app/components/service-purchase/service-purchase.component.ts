@@ -54,10 +54,10 @@ export class ServicePurchaseComponent implements OnInit {
         }
 
       });
-    }, (error) => {
-      console.log(error);
-    });
-  }
+    
+
+  })
+}
 
   ngOnInit() {
   }

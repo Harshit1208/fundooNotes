@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { constructor } from 'q';
 import { NoteService } from 'src/app/services/note.service';
 
 @Component({

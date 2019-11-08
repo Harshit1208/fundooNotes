@@ -33,7 +33,7 @@ import { ReminderComponent } from './components/reminder/reminder.component';
 import { MyDatePipePipe } from './pipe/my-date-pipe.pipe';
 import { ShowReminderComponent } from './components/show-reminder/show-reminder.component';
 import { QuestionComponent } from './components/question/question.component';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +89,9 @@ import { QuestionComponent } from './components/question/question.component';
     MatDialogModule,
     MatChipsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FroalaEditorModule.forRoot(),
+     FroalaViewModule.forRoot()
   ],
   providers: [
     HttpServiceService,

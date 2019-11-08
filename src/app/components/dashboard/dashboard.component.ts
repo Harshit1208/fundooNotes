@@ -72,8 +72,17 @@ export class DashboardComponent implements OnInit {
 
     })
 
+    this.usvc.events.addListener('label-deleted', () => {
+      this.getLabels()
+
+    })
+
     this.usvc.events.addListener('basic-service', () => {
       this.getService()
+
+    })
+    this.noteSvc.events.addListener('hide-bar', () => {
+      this.hideNoteBar=true;
 
     })
   }
@@ -165,7 +174,7 @@ export class DashboardComponent implements OnInit {
 
   labels() {
     this.dialog.open(LabelsComponent, {
-      width: "450px",
+      width: "300px",
       data:{
         labelArray:this.labelArray
       }

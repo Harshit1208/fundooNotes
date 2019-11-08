@@ -129,7 +129,7 @@ export class NotesComponent implements OnInit  {
 
     obs.subscribe((response) => {
       this.notesList = response.data.data;
-      console.log(response.data.data[0].user.email)
+      // console.log(response.data.data[0].user.email)
     }, (error) => {
       console.log(error);
     })
@@ -266,9 +266,13 @@ addCollab(note){
     //console.log(dateWithNoTimeZone)
     return (today >= dateWithNoTimeZone)
   }
-  question(){
-    this.router.navigateByUrl('question')
-  }
+  question(note) {
+    console.log(note)
+    //this.hideNoteBar = true;
+    this.noteSvc.question(note)
+    
 
+    
+  }
 
 }

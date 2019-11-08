@@ -15,6 +15,36 @@
   overflow-wrap: break-word;
 }
 
+.view{
+  background-color: rgb(7, 7, 7);
+  color: white;
+}
+.view:hover{
+  background-color: rgb(236, 59, 59);
+  color: white;
+}
+
+.ubu:hover{
+  background-color: rgb(236, 59, 59);
+  color: white;
+  width: 100%;
+}
+
+.jass{
+  background-color: rgba($color: #000000, $alpha: 0.6);
+  color: white;
+
+}
+
+.jas{
+  background-color: rgba($color: #e6e6e6, $alpha: 0.5);
+  color: rgb(0, 0, 0);
+}
+.jas:hover{
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  color: #e6e6e6;
+}
+
 .extra-actions {
   mat-card-actions, mat-icon {
     visibility: hidden;

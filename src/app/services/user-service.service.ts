@@ -71,11 +71,11 @@ export class UserServiceService {
     obs.subscribe((response) => this.snackBar.open("Password Changed"));
   }
   basic(){
-    return this.http.get("/user/service",this.token)
+    return this.http.get1("/user/service")
   
   }
   advance(){
-    return this.http.get("/user/service",this.token)
+    return this.http.get1("/user/service")
   
   }
   addToCart(data){
@@ -129,6 +129,7 @@ export class UserServiceService {
 
    })
 }
+
 removeSideLabel(id){
   let obs = this.http.delete('/noteLabels/'+id+'/deleteNoteLabel',this.token)
   obs.subscribe((response:any)=>{

@@ -2,6 +2,6 @@
     <div *ngFor="let user of data.labelArray">
       <h3><mat-icon (click)="removeSideLabel(user.id)">delete</mat-icon>{{user.label}}</h3>
       </div>
-    <input matInput placeholder="add label" [(ngModel)]='name'>
+    <input matInput placeholder="Add label" [(ngModel)]='name'>
     <mat-icon (click)="addLabel()" class="label">check_circle</mat-icon>
   </mat-form-field>

@@ -1,3 +1,4 @@
+
 <div [fxLayout.gt-xs]="notesView?'row wrap':'column'" fxLayout.lt-md="column" fxLayoutGap="2px"
     fxLayoutAlign="space-around center">
     <div *ngFor="let note of notesList.reverse()  | searchFilter : search">
@@ -119,6 +120,7 @@
 <br>
 <br>
 
+
 <div [fxLayout.gt-xs]="notesView?'row wrap':'column'" fxLayout.lt-md="column" fxLayoutGap="2px"
     fxLayoutAlign="space-around center">
     <div *ngFor="let note of notesList  | searchFilter : search">
@@ -142,14 +144,14 @@
 
             <div fxLayout="row" fxLayoutAlign="space-around center">
                 <mat-card-content *ngFor="let user of note.collaborators">
-                    <button mat-mini-fab>{{user.firstName.charAt(0)}}</button>
+                    <button class="jass" mat-mini-fab>{{user.firstName.charAt(0)}}</button>
                 </mat-card-content>
             </div>
 
             <div fxLayout="row" fxLayoutAlign="space-around center">
                 <mat-card-content *ngFor="let user of note.noteLabels">
                     <mat-chip-list>
-                        <mat-chip>{{user.label}}<mat-icon (click)="removeLabel(note,user.id)">close</mat-icon>
+                        <mat-chip class="jas" >{{user.label}}<mat-icon (click)="removeLabel(note,user.id)">close</mat-icon>
                         </mat-chip>
                     </mat-chip-list>
                 </mat-card-content>
@@ -157,13 +159,13 @@
 
             <div>
                 <mat-card-content *ngFor="let user of note.reminder">
-                    <mat-chip *ngIf="compareDate(note.reminder)">
+                    <mat-chip class="jas" *ngIf="compareDate(note.reminder)">
                         <p style="text-decoration: line-through;">
                             {{user|date:'medium':'+0'}}
                         </p>
                         <mat-icon (click)="removeReminder(note)">close</mat-icon>
                     </mat-chip>
-                    <mat-chip *ngIf="!compareDate(note.reminder)">
+                    <mat-chip class="jas" *ngIf="!compareDate(note.reminder)">
                         <p>
                             {{user|date:'medium':'+0'}}
                         </p>
@@ -172,6 +174,11 @@
                 </mat-card-content>
             </div>
 
+            <div *ngIf="note.questionAndAnswerNotes.length>0">
+                <hr>
+                questions:
+                <mat-chip [innerHTML]="note.questionAndAnswerNotes[0].message"></mat-chip>
+                </div>
 
             <mat-card-actions *ngIf="service=='advance'">
 
@@ -218,12 +225,12 @@
                             more_vert
                         </mat-icon>
                         <mat-menu #menu="matMenu">
-                            <button (click)="deleteNote(note)" mat-menu-item>Delete Note</button>
-                            <button (click)="question()" mat-menu-item>AskQuestion</button>
-                            <button [matMenuTriggerFor]="menu1" (click)="getLabels()" mat-menu-item>add label</button>
+                            <button class="ubu"(click)="deleteNote(note)" mat-menu-item>Delete Note</button>
+                            <button class="ubu"(click)="question(note)" mat-menu-item>AskQuestion</button>
+                            <button [matMenuTriggerFor]="menu1" class="ubu"(click)="getLabels()" mat-menu-item>Add label</button>
                             <mat-menu #menu1="matMenu">
-                                <mat-list-item><button *ngFor="let user of labelArray"
-                                        (click)="addToLabel(note,user.id)">{{user.label}}</button></mat-list-item>
+                                <mat-list-item><button mat-raised-button class="view"  *ngFor="let user of labelArray"
+                                       (click)="addToLabel(note,user.id)">{{user.label}}</button></mat-list-item>
                             </mat-menu>
                         </mat-menu>
                     </div>
